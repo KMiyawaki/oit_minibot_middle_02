@@ -1,0 +1,29 @@
+<launch>
+  <arg name="initial_pose_x" default="0" />
+  <arg name="initial_pose_y" default="0" />
+  <arg name="initial_pose_a" default="0" />
+  <arg name="map_dir" default="$(find oit_minibot_middle_02)/maps" />
+  <arg name="map_name" default="HRC" />
+  <arg name="map_path" default="$(arg map_dir)/$(arg map_name).yaml" />
+  <arg name="use_rviz" default="true" />
+  <arg name="rviz_required" default="true" />
+
+  <include file="$(find oit_minibot_middle_02)/launch/include/devices.launch">
+    <arg name="use_rviz" value="false" />
+  </include>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_path)" respawn="false" />
+
+  <include file="$(find oit_minibot_middle_02)/launch/include/amcl.launch">
+    <arg name="initial_pose_x" value="$(arg initial_pose_x)" />
+    <arg name="initial_pose_y" value="$(arg initial_pose_y)" />
+    <arg name="initial_pose_a" value="$(arg initial_pose_a)" />
+  </include>
+
+  <include file="$(find oit_minibot_middle_02)/launch/include/move_base/move_base.xml"/>
+
+  <include if="$(arg use_rviz)" file="$(find oit_minibot_middle_02)/launch/include/rviz.launch">
+    <arg name="file" value="navigation" />
+    <arg name="required" value="true" />
+  </include>
+</launch>

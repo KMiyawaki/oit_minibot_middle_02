@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=mapping
+Comment=oit_minibot_middle_02 record rosbag
+Exec=bash -c "~/catkin_ws/src/oit_minibot_middle_02/scripts/record_rosbag.sh"
+Icon=oit_record_rosbag
+Terminal=true

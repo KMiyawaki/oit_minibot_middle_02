@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=teleop
+Comment=oit_minibot_middle_02 joystick teleop
+Exec=bash -c "~/catkin_ws/src/oit_minibot_middle_02/scripts/teleop.sh"
+Icon=oit_teleop
+Terminal=true

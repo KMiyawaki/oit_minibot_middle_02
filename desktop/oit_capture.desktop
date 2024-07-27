@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=capture
+Comment=oit_minibot_middle_02 image capture
+Exec=bash -c "~/catkin_ws/src/oit_minibot_middle_02/scripts/image_capture.sh"
+Icon=oit_capture
+Terminal=true

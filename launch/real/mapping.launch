@@ -1,0 +1,25 @@
+<launch>
+  <arg name="use_rviz" default="true" />
+
+  <arg name="xmin" default="-5"/>
+  <arg name="xmax" default="5"/>
+  <arg name="ymin" default="-5"/>
+  <arg name="ymax" default="5"/>
+
+  <include file="$(find oit_minibot_middle_02)/launch/real/teleop.launch">
+    <arg name="use_rviz" value="false" />
+  </include>
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <remap from="scan" to="base_scan" />
+    <param name="xmin" value="$(arg xmin)" />
+    <param name="xmax" value="$(arg xmax)" />
+    <param name="ymin" value="$(arg ymin)" />
+    <param name="ymax" value="$(arg ymax)" />
+  </node>
+
+  <include if="$(arg use_rviz)" file="$(find oit_minibot_middle_02)/launch/include/rviz.launch">
+    <arg name="file" value="mapping" />
+    <arg name="required" value="true" />
+  </include>
+</launch>

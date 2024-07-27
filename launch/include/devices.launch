@@ -1,0 +1,20 @@
+<launch>
+  <arg name="use_rviz" default="false" />
+  <arg name="rviz_required" default="true" />
+
+  <include file="$(find oit_minibot_middle_02)/launch/include/roboclaw.launch"/>
+  <include file="$(find oit_minibot_middle_02)/launch/include/ydlidar.launch"/>
+  <include file="$(find oit_minibot_middle_02)/launch/include/pi_camera.launch"/>
+
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter" output="screen">
+    <rosparam command="load" file="$(find oit_minibot_middle_02)/config/laser_filter.yaml" />
+    <remap from="scan_filtered" to="base_scan" />
+  </node>
+
+  <include file="$(find oit_minibot_middle_02)/launch/include/state_publisher.launch"/>
+
+  <include if="$(arg use_rviz)" file="$(find oit_minibot_middle_02)/launch/include/rviz.launch">
+    <arg name="file" value="simple" />
+    <arg name="required" value="$(arg rviz_required)" />
+  </include>
+</launch>

@@ -1,0 +1,16 @@
+<launch>
+  <arg name="use_rviz" default="false" />
+  <arg name="rviz_required" default="true" />
+
+  <node pkg="oit_minibot_middle_02" type="pi_camera.py" name="pi_camera" output="screen">
+    <param name="~process_rate" value="30"/>
+    <param name="~width" value="640"/>
+    <param name="~height" value="480"/>
+    <param name="~fps" value="30"/>
+  </node>
+  
+  <include if="$(arg use_rviz)" file="$(find oit_minibot_middle_02)/launch/include/rviz.launch">
+    <arg name="file" value="simple" />
+    <arg name="required" value="$(arg rviz_required)" />
+  </include>
+</launch>

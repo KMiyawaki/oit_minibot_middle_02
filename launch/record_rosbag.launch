@@ -1,0 +1,32 @@
+<launch>
+  <arg name="minimal" default="true" />
+  <!--
+  /base_scan
+  /cmd_vel
+  /diagnostics
+  /goal
+  /initialpose
+  /joint_states
+  /joy
+  /joy/set_feedback
+  /odom
+  /oit_roboclaw_driver_node/emergency
+  /oit_roboclaw_driver_node/encoders
+  /oit_roboclaw_driver_node/velocities
+  /pi_camera/image
+  /pi_camera/image/mouse_click
+  /point_cloud
+  /rosout
+  /rosout_agg
+  /scan
+  /tf
+  /tf_static
+  -->
+  <arg name="minimal_targets" default="'/(cmd_vel|base_scan|odom|tf|tf_static)'" />
+  <group if="$(arg minimal)">
+    <node pkg="rosbag" type="record" name="record" output="screen" args="-j -e $(arg minimal_targets)"/>
+  </group>
+  <group unless="$(arg minimal)">
+    <node pkg="rosbag" type="record" name="record" output="screen" args="-a -j -x '(.*)/compressed(.*)'"/>
+  </group>
+</launch>

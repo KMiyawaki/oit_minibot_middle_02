@@ -1,0 +1,9 @@
+# Copy this file and rename to 'settings.sh'
+# Add the following line to the bottom of ~/.bashrc
+# source ${HOME}/catkin_ws/src/oit_minibot_middle_02/scripts/settings.sh
+
+# export OIT_MINIBOT_MIDDLE_02_JOY="/dev/input/js0" 
+export OIT_MINIBOT_MIDDLE_02_TELEOP="joy"
+export OIT_MINIBOT_MIDDLE_02_JOY="/dev/input/by-id/usb-Logicool_Wireless_Gamepad_F710_D2409FFA-joystick"
+# export OIT_MINIBOT_MIDDLE_02_ROBOCLAW="/dev/serial/by-id/usb-03eb_USB_Roboclaw_2x7A-if00"
+export OIT_MINIBOT_MIDDLE_02_ROBOCLAW="/dev/ttyAMA1"
