@@ -1,8 +1,11 @@
 <launch>
   <arg name="use_rviz" default="true" />
+  <arg name="teleop" default="$(env OIT_MINIBOT_MIDDLE_02_TELEOP)" />
 
   <include file="$(find oit_minibot_middle_02)/launch/include/devices.launch"/>
-  <include file="$(find oit_minibot_middle_02)/launch/include/teleop_select.launch"/>
+  <include file="$(find oit_minibot_middle_02)/launch/include/teleop_select.launch">
+    <arg name="teleop" value="$(arg teleop)" />
+  </include>
 
   <include if="$(arg use_rviz)" file="$(find oit_minibot_middle_02)/launch/include/rviz.launch">
     <arg name="file" value="simple" />

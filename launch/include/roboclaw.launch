@@ -11,8 +11,8 @@
     <!-- Ticks: 102.08 * 64 = 6533.12 -->
     <!-- Wheel: 0.07 * Pi = 0.21991148575128555 -->
     <param name="~ticks_per_meter" value="29707.952623214947"/>
-    <param name="~linear_max" value="0.4"/>
+    <param name="~linear_max" value="0.2"/>
     <!--Radians-->
-    <param name="~angular_max" value="1.57"/>
+    <param name="~angular_max" value="1.0471975511965976"/>
   </node>
 </launch>
