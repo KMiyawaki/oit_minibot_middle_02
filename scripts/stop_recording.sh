@@ -1,33 +1,33 @@
 #!/bin/bash
 
 function main() {
-    local -r DIST=`~/catkin_ws/src/oit_minibot_middle_02/scripts/get_ros_distoro.sh`
+    local -r PACKAGE="oit_minibot_middle_02"
+    local -r DIST=`${HOME}/catkin_ws/src/${PACKAGE}/scripts/get_ros_distoro.sh`
     source /opt/ros/${DIST}/setup.bash
     source ~/catkin_ws/devel/setup.bash
-    source ~/.bashrc
+    source ${HOME}/catkin_ws/src/${PACKAGE}/scripts/settings.sh
+    rosnode list|grep -q record
+    if [ $? -eq 1 ]; then
+        echo "rosbag record is not running. exit."
+        return 0
+    fi
+
     local -r BAG_ORG="$HOME/.ros"
     local -r BAG_FILTER="${BAG_ORG}/`date --iso-8601`-*.bag"
-    local -r PKG=`rospack find oit_minibot_middle_02`
+    local -r PKG=`rospack find ${PACKAGE}`
     local -r BAG_DST="${PKG}/bags"
-
+    local -r PID=`rosnode info /record 2>/dev/null|grep Pid|cut -d' ' -f2`
+    rosnode kill /record
+    echo "Waiting for killing rosbag record PID=${PID}..."
     while true
     do
-        rosnode list|grep record > /dev/null
+        ps -p ${PID}  --no-headers|grep ${PID} > /dev/null
         if [ $? -ne 0 ]; then
             echo "rosbag recording has stopped."
             break
         fi
-        rosnode kill /record
-        echo "Waiting for killing rosbag record..."
-        sleep 1
-    done
-    local -r BAGS=`find ${BAG_FILTER}`
-    for bag in ${BAGS}
-    do
-        com="mv ${bag} ${BAG_DST}"
-        echo ${com}
-        eval ${com}
-        sleep 1
+        echo "Waiting for terminating rosbag record... Do not close. Do not press Ctrl+C."
+        sleep 3
     done
 }
 
