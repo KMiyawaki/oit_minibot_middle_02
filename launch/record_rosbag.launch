@@ -13,8 +13,8 @@
   /oit_roboclaw_driver_node/emergency
   /oit_roboclaw_driver_node/encoders
   /oit_roboclaw_driver_node/velocities
-  /pi_camera/image
-  /pi_camera/image/mouse_click
+  /image
+  /image/mouse_click
   /point_cloud
   /rosout
   /rosout_agg

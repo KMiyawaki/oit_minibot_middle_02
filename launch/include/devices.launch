@@ -4,7 +4,7 @@
 
   <include file="$(find oit_minibot_middle_02)/launch/include/roboclaw.launch"/>
   <include file="$(find oit_minibot_middle_02)/launch/include/ydlidar.launch"/>
-  <include file="$(find oit_minibot_middle_02)/launch/include/pi_camera.launch"/>
+  <include file="$(find oit_minibot_middle_02)/launch/include/camera.launch"/>
 
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter" output="screen">
     <rosparam command="load" file="$(find oit_minibot_middle_02)/config/laser_filter.yaml" />
