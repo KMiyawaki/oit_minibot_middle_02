@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=oit_ros_python
+Name=Exec ROS python script
+Comment=Exec ROS python script with double click
+Exec=bash -c "~/catkin_ws/src/oit_minibot_middle_02/scripts/exec_python.sh %f"

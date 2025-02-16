@@ -37,14 +37,15 @@ function main(){
     fi
     cp ./icons/*.png ${ICONS}
     
-    install_desktop_entry ${APPS} ./desktop/oit_stop_all.desktop 1
-    install_desktop_entry ${APPS} ./desktop/oit_capture.desktop 1
     install_desktop_entry ${DESK} ./desktop/oit_mapping.desktop
     install_desktop_entry ${DESK} ./desktop/oit_teleop.desktop 
     install_desktop_entry ${DESK} ./desktop/oit_navigation.desktop 
-    install_desktop_entry ${APPS} ./desktop/oit_devices.desktop 1
-    install_desktop_entry ${APPS} ./desktop/oit_save_map.desktop 1
-    install_desktop_entry ${APPS} ./desktop/oit_ros_python2.desktop
+    install_desktop_entry ${DESK} ./desktop/oit_devices.desktop
+    install_desktop_entry ${APPS} ./desktop/oit_stop_all.desktop
+    install_desktop_entry ${APPS} ./desktop/oit_capture.desktop
+    install_desktop_entry ${APPS} ./desktop/oit_save_map.desktop
+    install_desktop_entry ${APPS} ./desktop/oit_ros_python.desktop
+    echo "Add panel from lanchbar menu"
     echo "Set default app for python with right click *.py file."
 }
 
