@@ -1,6 +1,17 @@
 process_rate: 20 # Hz
+# tread = 0.2
+# ticks_per_meter = 29707.952623214947
 motor_acceleration: 11500 # ticks
-
+# linear_acceleration = 0.38710173487396277
+# angular_acceleration = math.degrees(0.38710173487396277 * 2 / 0.2) = 221.7929565047022
+#
+# motor_acceleration: 17900 # ticks
+# linear_acceleration = 0.602532265586429
+# angular_acceleration = math.degrees(0.602532265586429 * 2 / 0.2) = 345.22555838558
+# 
+# motor_acceleration: 24000 # ticks
+# linear_acceleration = 0.8078644901717484
+# angular_acceleration = math.degrees(0.8078644901717484 * 2 / 0.2) = 462.87225705329155
 serial_0 :
     port : $(env OIT_MINIBOT_MIDDLE_02_ROBOCLAW)
     baud_rate : 38400
