@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="611.39482"
-     inkscape:cy="71.089485"
+     inkscape:cx="538.66384"
+     inkscape:cy="71.342023"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -386,6 +386,56 @@
            x="194.7722"
            y="15.89364"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.79034px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.119758">ython</tspan></text>
+    </g>
+    <g
+       id="g6"
+       inkscape:export-filename="oit_stage_simulation.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#80ff80;fill-opacity:1;stroke:#000000;stroke-width:0.25148;stroke-opacity:1"
+         id="rect10-1-0-94"
+         width="16.681852"
+         height="16.681854"
+         x="167.35919"
+         y="5.7988329"
+         ry="1.5928094" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:15.5941px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.389854"
+         x="214.81889"
+         y="16.685268"
+         id="text837-1-7-8"
+         transform="scale(0.77910921,1.2835171)"><tspan
+           sodipodi:role="line"
+           id="tspan835-3-5-8"
+           x="214.81889"
+           y="16.685268"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.389854">S</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.90562px;line-height:0.65;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14764"
+         x="287.35532"
+         y="8.5088587"
+         id="text841-4-9-4"
+         transform="scale(0.60978614,1.6399192)"><tspan
+           sodipodi:role="line"
+           id="tspan5"
+           x="287.35532"
+           y="8.5088587"
+           style="stroke-width:0.14764">imla</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.80826px;line-height:0.65;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145207"
+         x="292.38815"
+         y="12.926379"
+         id="text841-4-9-0-5"
+         transform="scale(0.60162358,1.6621689)"><tspan
+           sodipodi:role="line"
+           id="tspan6"
+           x="292.38815"
+           y="12.926379"
+           style="stroke-width:0.145207">tion</tspan></text>
     </g>
   </g>
 </svg>

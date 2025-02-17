@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=stage navigation
+Comment=oit_minibot_middle_02 stage_navigation launcher
+Exec=bash -c "~/catkin_ws/src/oit_minibot_middle_02/scripts/stage_navigation.sh"
+Icon=oit_stage_navigation
+Terminal=true

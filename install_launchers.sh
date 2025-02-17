@@ -40,6 +40,7 @@ function main(){
     install_desktop_entry ${DESK} ./desktop/oit_mapping.desktop
     install_desktop_entry ${DESK} ./desktop/oit_teleop.desktop 
     install_desktop_entry ${DESK} ./desktop/oit_navigation.desktop 
+    install_desktop_entry ${DESK} ./desktop/oit_stage_navigation.desktop 
     install_desktop_entry ${DESK} ./desktop/oit_devices.desktop
     install_desktop_entry ${APPS} ./desktop/oit_stop_all.desktop
     install_desktop_entry ${APPS} ./desktop/oit_capture.desktop
