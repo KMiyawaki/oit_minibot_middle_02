@@ -6,8 +6,10 @@ function main(){
     source /opt/ros/${DIST}/setup.bash
     source ${HOME}/catkin_ws/devel/setup.bash
     source ${HOME}/catkin_ws/src/${PACKAGE}/scripts/settings.sh
+    local -r IMAGE_DIR="${HOME}/catkin_ws/src/${PACKAGE}/camera_images"
     
     rosrun ${PACKAGE} image_capture.py
+    pcmanfm ${IMAGE_DIR}
 }
 
 main "$@"

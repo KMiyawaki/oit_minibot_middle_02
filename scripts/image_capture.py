@@ -5,6 +5,7 @@ import datetime
 
 import cv2
 import rospy
+import roslib.packages
 import sensor_msgs
 from cv_bridge import CvBridge, CvBridgeError
 
@@ -30,6 +31,9 @@ def main():
     topic_name = rospy.get_param('~topic_name', '/image')
     file_name = rospy.get_param('~file_name', '')
     time_limit = rospy.get_param('~time_limit', 3)
+    pkg_name = 'oit_minibot_middle_02'
+    dir = roslib.packages.get_pkg_dir(pkg_name) + '/camera_images/'
+
     bridge = CvBridge()
     msg_getter = SensorMessageGetter(
         topic_name, sensor_msgs.msg.Image, time_limit)
@@ -40,7 +44,7 @@ def main():
             if file_name == '':
                 d = datetime.datetime.now()
                 file_name = d.strftime('%Y%m%d_%H%M%S.jpg')
-            cv2.imwrite(file_name, cv_image)
+            cv2.imwrite(dir + file_name, cv_image)
             rospy.loginfo("Saved %s", file_name)
         except CvBridgeError as e:
             print(e)

@@ -53,4 +53,7 @@ bags/*
 !/bags/.gitkeep
 !/bags/*.sh
 
+camera_images/*
+!/camera_images/.gitkeep
+
 scripts/settings.sh
