@@ -22,7 +22,8 @@ def main(launch):
         print("[%2d] %s" % (i, m))
     idx = 0
     if len(map_data) > 1:
-        print('マップ番号を 0 -- %d で入力してください。それ以外の番号でキャンセルします' % (len(map_data) - 1))
+        print('マップ番号を 0 -- %d で入力してください。それ以外の番号でキャンセルします' %
+              (len(map_data) - 1))
         idx = int(input('番号？ > '))
         if idx < 0 or len(map_data) <= idx:
             return

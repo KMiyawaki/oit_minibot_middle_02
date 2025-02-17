@@ -1,0 +1,12 @@
+<launch>
+  <!-- https://github.com/ActiveIntelligentSystemsLab/japanese_tts_ros -->
+  <arg name="hts_voice_dir" default="$(find japanese_text_to_speech)/MMDAgent_Example-1.8/Voice/mei"/>
+  <arg name="hts_voice_type" default="mei_normal"/>
+  <arg name="hts_voice_file" default="$(arg hts_voice_dir)/$(arg hts_voice_type).htsvoice"/>
+
+  <node name="japanese_text_to_speech" pkg="japanese_text_to_speech" type="japanese_text_to_speech">
+    <param name="hts_voice_file" value="$(arg hts_voice_file)"/>
+  </node>
+  <node name="tts_bridge" pkg="oit_minibot_middle_02" type="tts_bridge.py" output="screen">
+  </node>
+</launch>

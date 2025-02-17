@@ -1,10 +1,12 @@
 <launch>
   <arg name="use_rviz" default="false" />
   <arg name="rviz_required" default="true" />
+  <arg name="use_tts" default="$(env OIT_MINIBOT_MIDDLE_02_USE_TTS)" />
 
   <include file="$(find oit_minibot_middle_02)/launch/include/roboclaw.launch"/>
   <include file="$(find oit_minibot_middle_02)/launch/include/ydlidar.launch"/>
   <include file="$(find oit_minibot_middle_02)/launch/include/camera.launch"/>
+  <include if="$(arg use_tts)" file="$(find oit_minibot_middle_02)/launch/include/tts.launch"/>
 
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter" output="screen">
     <rosparam command="load" file="$(find oit_minibot_middle_02)/config/laser_filter.yaml" />

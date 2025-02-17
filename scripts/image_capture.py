@@ -4,8 +4,8 @@
 import datetime
 
 import cv2
-import rospy
 import roslib.packages
+import rospy
 import sensor_msgs
 from cv_bridge import CvBridge, CvBridgeError
 
