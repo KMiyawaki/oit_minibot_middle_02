@@ -7,21 +7,23 @@ function main(){
     source ${HOME}/catkin_ws/devel/setup.bash
     source ${HOME}/catkin_ws/src/${PACKAGE}/scripts/settings.sh
 
-    ${HOME}/catkin_ws/src/${PACKAGE}/scripts/stop_recording.sh
+    if [ ${OIT_MINIBOT_MIDDLE_02_STOP_RECORDING} -eq 1 ]; then
+        ${HOME}/catkin_ws/src/${PACKAGE}/scripts/stop_recording.sh
+    fi
 
-    echo "Kill all ros nodes!"
-    rosnode list | awk '{ print "rosnode kill", $1 }' | sh
-    while true
-    do
-        rosnode list | grep -v rosout > /dev/null
-        if [ $? -ne 0 ]; then
-            echo "Killed all ros nodes."
-            break
-        fi
-        echo "Waiting for terminating all ros nodes... Do not close. Do not press Ctrl+C."
-        sleep 1
-    done
-    echo "Close roscore"
+    # echo "Kill all ros nodes!"
+    # rosnode list | awk '{ print "rosnode kill", $1 }' | sh
+    # while true
+    # do
+    #     rosnode list | grep -v rosout > /dev/null
+    #     if [ $? -ne 0 ]; then
+    #         echo "Killed all ros nodes."
+    #         break
+    #     fi
+    #     echo "Waiting for terminating all ros nodes... Do not close. Do not press Ctrl+C."
+    #     sleep 1
+    # done
+    echo "Kill ros processes"
     ps aux | grep ros | grep -v grep | awk '{ print "kill -9", $2 }' | sh
     echo "Close terminals"
     ps aux | grep xterm | grep -v grep | awk '{ print "kill -9", $2 }' | sh
