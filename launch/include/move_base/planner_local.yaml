@@ -12,7 +12,7 @@ DWAPlannerROS:
   acc_lim_theta: deg(300)
   acc_lim_trans: 0.8
   prune_plan: true
-  xy_goal_tolerance: 0.1
+  xy_goal_tolerance: 0.15
   yaw_goal_tolerance: deg(20)
   trans_stopped_vel: 0.0
   theta_stopped_vel: 0.0
