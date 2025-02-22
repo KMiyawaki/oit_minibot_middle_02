@@ -36,7 +36,7 @@ emacs settings.sh
 export OIT_MINIBOT_MIDDLE_02_TELEOP="joy"
 export OIT_MINIBOT_MIDDLE_02_JOY="/dev/input/by-id/usb-Logicool_Logicool_Cordless_RumblePad_2-joystick"
 export OIT_MINIBOT_MIDDLE_02_ROBOCLAW="/dev/ttyAMA1"
-export OIT_MINIBOT_MIDDLE_02_YDLIDAR="/dev/ttyAMA2"
+export OIT_MINIBOT_MIDDLE_02_YDLIDAR="/dev/ttyAMA2" # USB接続時は "/dev/ydlidar"
 export OIT_MINIBOT_MIDDLE_02_CREATE_STAGE=1
 export OIT_MINIBOT_MIDDLE_02_STOP_RECORDING=0
 export OIT_MINIBOT_MIDDLE_02_CAMERA_FLIP="true"
