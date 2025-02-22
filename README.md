@@ -9,14 +9,45 @@
 ## インストール
 
 ```shell
-$ cd ~/catkin_ws/src
-$ git clone https://github.com/KMiyawaki/oit_minibot_middle_02.git
-$ cd ~/catkin_ws/src/oit_minibot_middle_02
-$ ./install.sh
-# 自動的に再起動される。
+cd ~/catkin_ws/src
+git clone https://github.com/KMiyawaki/oit_minibot_middle_02.git
+cd ~/catkin_ws/src/oit_minibot_middle_02
+./install.sh
+./install_ydlidar.sh
+cd ~/catkin_ws/src/ydlidar_ros_driver/startup
+sudo initenv.sh
+sudo reboot
 ```
 
-- テレオペや地図作成にはジョイスティックがあった方が便利。
+設定ファイルを置く。
+
+```shell
+roscd oit_minibot_middle_02/script
+emacs settings.sh
+```
+
+以下を貼り付ける。
+コメントにある通り、`~/.bashrc`の末尾に`source ${HOME}/catkin_ws/src/oit_minibot_middle_02/scripts/settings.sh`の一行を貼り付ける。
+
+```shell
+# Add the following line to the bottom of ~/.bashrc
+# source ${HOME}/catkin_ws/src/oit_minibot_middle_02/scripts/settings.sh
+
+export OIT_MINIBOT_MIDDLE_02_TELEOP="joy"
+export OIT_MINIBOT_MIDDLE_02_JOY="/dev/input/by-id/usb-Logicool_Logicool_Cordless_RumblePad_2-joystick"
+export OIT_MINIBOT_MIDDLE_02_ROBOCLAW="/dev/ttyAMA1"
+export OIT_MINIBOT_MIDDLE_02_YDLIDAR="/dev/ttyAMA2"
+export OIT_MINIBOT_MIDDLE_02_CREATE_STAGE=1
+export OIT_MINIBOT_MIDDLE_02_STOP_RECORDING=0
+export OIT_MINIBOT_MIDDLE_02_CAMERA_FLIP="true"
+export OIT_MINIBOT_MIDDLE_02_CAMERA_DEVICE_ID="0"
+export OIT_MINIBOT_MIDDLE_02_CAMERA_RATE="15"
+export OIT_MINIBOT_MIDDLE_02_CAMERA_IMAGE_WIDTH="640"
+export OIT_MINIBOT_MIDDLE_02_CAMERA_IMAGE_HEIGHT="480"
+export OIT_MINIBOT_MIDDLE_02_USE_TTS="true"
+```
+
+テレオペや地図作成にはジョイスティックがあった方が便利。
 
 ## ロボットの起動
 
@@ -58,7 +89,7 @@ Bluetooth キーボードはタッチパッド上で一本指でタッチする�
 任意のディレクトリで下記のコマンドを起動する。
 
 ```shell
-$ roslaunch oit_minibot_middle_02 teleop.launch
+roslaunch oit_minibot_middle_02 teleop.launch
 # teleop:=joy をつけるとジョイスティックによるテレオペが起動する。
 ```
 
@@ -67,15 +98,15 @@ $ roslaunch oit_minibot_middle_02 teleop.launch
 ジョイスティックでロボットを操作しながらロボット周囲の環境の地図を作成する。
 
 ```shell
-$ roslaunch oit_minibot_middle_02 mapping.launch
+roslaunch oit_minibot_middle_02 mapping.launch
 # teleop:=joy をつけるとジョイスティックによるテレオペが起動する。
 ```
 
 地図作成が終わったら、上記で起動したソフトを**絶対に終了させずに**別ターミナルで以下のコマンドを実行して地図を保存する。
 
 ```shell
-$ roscd oit_minibot_middle_02/maps
-$ rosrun map_server map_saver -f test # test の部分は任意の地図名をつける。
+roscd oit_minibot_middle_02/maps
+rosrun map_server map_saver -f test # test の部分は任意の地図名をつける。
 [ INFO] [1615598383.151895509]: Waiting for the map
 [ INFO] [1615598383.434767477]: Received a 480 X 736 map @ 0.050 m/pix
 [ INFO] [1615598383.434929931]: Writing map occupancy data to sample_01.pgm
@@ -87,8 +118,8 @@ $ rosrun map_server map_saver -f test # test の部分は任意の地図名を�
 その後地図ファイルの有無を確認する。
 
 ```shell
-$ roscd oit_minibot_middle_02/maps
-$ ls test* # test は保存時につけた地図名
+roscd oit_minibot_middle_02/maps
+ls test* # test は保存時につけた地図名
 test.pgm
 test.yaml
 ```
@@ -102,7 +133,7 @@ test.yaml
 - 例：`test.pgm  test.yaml`の場合、地図名は`test`。
 
 ```shell
-$ roslaunch oit_minibot_middle_02 navigation.launch map_name:=test # map_name:=以降の文字をナビゲーション時に利用する地図名に変更する。
+roslaunch oit_minibot_middle_02 navigation.launch map_name:=test # map_name:=以降の文字をナビゲーション時に利用する地図名に変更する。
 ```
 
 自己位置推定、ゴール指定方法はこれまで通り。
@@ -112,7 +143,7 @@ $ roslaunch oit_minibot_middle_02 navigation.launch map_name:=test # map_name:=�
 - ロボット側端末で Jetson NANO をシャットダウンする。
 
 ```shell
-$ sudo shutdown -h now
+sudo shutdown -h now
 ```
 
 - 起動時に押下した、Jetson NANO 用の電源スイッチを OFF にする。
@@ -121,21 +152,21 @@ $ sudo shutdown -h now
 ## 作成した地図をシミュレータで使う
 
 ```shell
-$ roscd oit_minibot_middle_02/maps
-$ ls test* # 地図のファイルを確認
+roscd oit_minibot_middle_02/maps
+ls test* # 地図のファイルを確認
 test.pgm  test.yaml
-$ ./make_stage_world.sh test.yaml
+./make_stage_world.sh test.yaml
 Add black border into test.pgm... 
 Generated test_border.png
-$ ls test* # 地図とシミュレータのファイルを確認
+ls test* # 地図とシミュレータのファイルを確認
 test.pgm  test.world  test.yaml  test_border.png
-$ roslaunch oit_minibot_middle_02 stage_navigation.launch map_name:=test
+roslaunch oit_minibot_middle_02 stage_navigation.launch map_name:=test
 ```
 
 ### Stage によるナビゲーション
 
 ```shell
-$ roslaunch oit_minibot_middle_02 stage_navigation.launch map_name:=test # map_name:=以降の文字をナビゲーション時に利用する地図名に変更する。
+roslaunch oit_minibot_middle_02 stage_navigation.launch map_name:=test # map_name:=以降の文字をナビゲーション時に利用する地図名に変更する。
 ```
 
 ## ロボットから電池を外して充電する
