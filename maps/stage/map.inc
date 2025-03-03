@@ -17,7 +17,7 @@ define floorplan model
   ranger_return 1
 )
 
-define rect_block model
+define ellipse_block model
 (
   #size [0.5 0.5 1.5]
   #gui_nose 0
@@ -36,7 +36,7 @@ define rect_block model
   )
 )
 
-define polygon_block model
+define human_block model
 (
   size [0.65 0.3 1.7]
   block( 
@@ -79,15 +79,11 @@ define polygon_block model
 
 define low_block model
 (
-  #size [0.5 0.5 1.5]
-  #gui_nose 0
   size [0.5 0.5 0.25]
 )
 
 define middle_block model
 (
-  #size [0.5 0.5 1.5]
-  #gui_nose 0
   size [0.25 0.25 0.35]
 )
 

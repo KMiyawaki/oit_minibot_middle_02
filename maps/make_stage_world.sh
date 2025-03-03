@@ -92,14 +92,29 @@ robot
   pose [0 0 0 0]
 )
 
-rect_block(
+human_block(
   pose [0 -2 0 0]
+  color "yellow"
+)
+
+ellipse_block(
+  pose [0.8 -2 0 0]
   color "blue"
 )
 
-polygon_block(
+middle_block(
   pose [0 2 0 0]
   color "yellow"
+)
+
+middle_block(
+  pose [0.6 2 0 0]
+  color "red"
+)
+
+middle_block(
+  pose [1.2 2 0 0]
+  color "blue"
 )
 EOF
 }
