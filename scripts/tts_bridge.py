@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
+
 import actionlib
 import japanese_text_to_speech.msg
 import rospy
@@ -23,7 +25,9 @@ def callback(msg):
 
 def main():
     global simple_client, speed_rate
-    rospy.init_node('tts_bridge')
+    script_name = os.path.basename(__file__)
+    node_name = os.path.splitext(script_name)[0]
+    rospy.init_node(node_name)
     action_name = rospy.get_param('~action_name', 'japanese_text_to_speech')
     speed_rate = rospy.get_param('~speed_rate', speed_rate)
     simple_client = actionlib.SimpleActionClient(

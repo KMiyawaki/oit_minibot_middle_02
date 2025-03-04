@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import os
 
 import cv2
 import roslib.packages
@@ -27,7 +28,9 @@ class SensorMessageGetter(object):
 
 
 def main():
-    rospy.init_node('image_capture')
+    script_name = os.path.basename(__file__)
+    node_name = os.path.splitext(script_name)[0]
+    rospy.init_node(node_name)
     topic_name = rospy.get_param('~topic_name', '/image')
     file_name = rospy.get_param('~file_name', '')
     time_limit = rospy.get_param('~time_limit', 3)
