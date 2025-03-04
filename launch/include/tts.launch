@@ -7,6 +7,4 @@
   <node name="japanese_text_to_speech" pkg="japanese_text_to_speech" type="japanese_text_to_speech">
     <param name="hts_voice_file" value="$(arg hts_voice_file)"/>
   </node>
-  <node name="tts_bridge" pkg="oit_minibot_middle_02" type="tts_bridge.py" output="screen">
-  </node>
 </launch>
