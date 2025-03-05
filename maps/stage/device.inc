@@ -14,26 +14,27 @@ define UTM-30LX ranger
   update_interval 25
 )
 
-define YDLIDAR_X4 ranger
+define YDLIDAR_T-mini_Plus ranger
 (
-  # https://www.ydlidar.com/products/view/5.html
+  # https://www.ydlidar.com/products/view/27.html
   sensor(                         
-    range [ 0.0  11.0 ]
+    range [ 0.0  12.0 ]
     fov 360
-    samples 720
+    samples 500
   )
   # generic model properties
   color "black"
-  size [ 0.05 0.05 0.1 ]
-  update_interval 25
+  size [ 0.0386 0.0386 0.0339 ]
+  update_interval 125
 )
 
-define IMX219_D160 camera
+define RaspberryPi_Camera_Module_v2 camera
 (
-  # https://www.waveshare.com/imx219-d160.htm
-  resolution [ 1280 720 ]
+  # https://www.raspberrypi.com/documentation/accessories/camera.html#hardware-specification
+  # https://player-stage-manual.readthedocs.io/en/latest/WORLDFILES/#3211-camera
+  resolution [ 640 480 ]
   range [ 0.2 20.0 ]
-  fov [ 155.1263859 147.2783641 ]
+  fov [ 62.2 48.8 ]
   pantilt [ 0.0 0.0 ]
 
   # model properties
@@ -41,22 +42,30 @@ define IMX219_D160 camera
   color "green"
 )
 
-define antenna model(
-  size [0.05 0.025 0.1]
-  color "black"
+define triangle model(
+  block( 
+    points 3
+    point[0] [0.05 0.0]
+    point[1] [0.0  0.025]
+    point[2] [0.0 -0.025]
+    z [0 0.1]
+  )
+  color "green"
 )
 
 define robot position
 (
-  size   [0.24 0.24 0.158]
-  origin [-0.05 0 0 0] # move rotation center forward
+  size   [0.225 0.225 0.1793]
+  origin [-0.0675 0 0 0] # move rotation center forward
   gui_nose 1
   drive "diff"
-  YDLIDAR_X4(pose [ 0.03 0 0.0787 0 ])
-  IMX219_D160(pose [ 0.03 0 -0.03075 0 ])
-  antenna(pose [ 0.01  0.10 0 0 ])
-  antenna(pose [ 0.01 -0.10 0 0 ])
+  YDLIDAR_T-mini_Plus(pose [ 0.0257 0 0.0683 0 ])
+  RaspberryPi_Camera_Module_v2(pose [ 0 0 -0.01975 0 ])
+  triangle(
+    pose [-0.085 0 0 0 ]
+    size [ 0.15  0.15 0.01]
+  )
   velocity_bounds     [-0.4 0.4 0 0 0 0 -270 270]
   acceleration_bounds [-1.2 1.2 0 0 0 0 -270 270]
-  update_interval 25
+  update_interval 50
 )
