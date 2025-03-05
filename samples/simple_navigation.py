@@ -64,10 +64,9 @@ def main():
             'Waiting for the japanese_text_to_speech action server to come up')
     rospy.loginfo('The japanese_text_to_speech server comes up')
 
-    # 座標（1.10, 0.25）に90度の向きで止まるようにナビゲーションする
     # 目標地点は地図に応じて適宜変更すること
     text_to_speech(ac_tts, '出発します！')
-    goto_point(ac_nav, 7.10, 2.1, math.radians(90))
+    goto_point(ac_nav, 7.10, 2.1, math.radians(90)) # 座標（7.10, 2.1）に90度の向きで止まるようにナビゲーションする
     text_to_speech(ac_tts, '帰ります！')
     goto_point(ac_nav, 1.33, 0.0, math.radians(0))
     text_to_speech(ac_tts, '終わります！')
