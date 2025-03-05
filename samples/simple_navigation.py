@@ -66,7 +66,8 @@ def main():
 
     # 目標地点は地図に応じて適宜変更すること
     text_to_speech(ac_tts, '出発します！')
-    goto_point(ac_nav, 7.10, 2.1, math.radians(90)) # 座標（7.10, 2.1）に90度の向きで止まるようにナビゲーションする
+    # 座標（7.10, 2.1）に90度の向きで止まるようにナビゲーションする
+    goto_point(ac_nav, 7.10, 2.1, math.radians(90))
     text_to_speech(ac_tts, '帰ります！')
     goto_point(ac_nav, 1.33, 0.0, math.radians(0))
     text_to_speech(ac_tts, '終わります！')

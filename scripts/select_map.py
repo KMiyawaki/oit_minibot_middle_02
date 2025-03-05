@@ -4,6 +4,7 @@
 import glob
 import os
 import sys
+import time
 
 import roslib.packages
 
@@ -13,7 +14,9 @@ def main(launch):
     path = roslib.packages.get_pkg_dir(pkg_name) + '/maps/'
     map_data = glob.glob(path + '**/*.yaml', recursive=True)
     if not map_data:
-        print('マップがありません')
+        wait = 3
+        print('マップがありません。%d秒後に画面を閉じます。' % wait)
+        time.sleep(wait)
         return
     for i, m in enumerate(map_data):
         map_data[i] = m.replace(path, '').replace('.yaml', '')
