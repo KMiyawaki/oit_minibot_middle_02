@@ -7,6 +7,7 @@
   <arg name="use_rviz" default="true" />
   <arg name="rviz_conf" default="$(find oit_minibot_middle_02)/config/rviz/simple.rviz" />
   <arg name="rviz_required" default="true" />
+  <arg name="use_tts" default="$(env OIT_MINIBOT_MIDDLE_02_USE_TTS)" />
 
   <arg name="active_filters" default="$(find twist_filter)/config/active_filters_default.yaml" />
   <arg name="filter_config" default="$(find oit_minibot_middle_02)/config/twist_avg_filter.yaml" />
@@ -35,6 +36,7 @@
 
   <include file="$(find oit_minibot_middle_02)/launch/include/state_publisher.launch">
   </include>
+  <include if="$(arg use_tts)" file="$(find oit_minibot_middle_02)/launch/include/tts.launch"/>
 
   <group if="$(arg use_rviz)">
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf)" required="$(arg rviz_required)" />
