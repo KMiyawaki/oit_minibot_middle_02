@@ -14,6 +14,8 @@ function main(){
     git clone https://github.com/KMiyawaki/oit_roboclaw_driver.git
     sudo apt-get install -y ros-${TARGET_ROS}-teleop-twist-keyboard
     sudo apt-get install -y ros-${TARGET_ROS}-key-teleop
+    sudo apt-get install -y ros-${TARGET_ROS}-urdf-tutorial
+    sudo apt-get install -y liburdfdom-tools
     sudo apt-get install -y xterm
     if [[ $TARGET_ROS = "melodic" ]]; then
         sudo /usr/bin/python2 -m pip install pyserial
