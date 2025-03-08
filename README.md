@@ -1,6 +1,18 @@
-# Minibot light
+# Minibot middle ver.2 の使い方
 
-演習用小型ロボットの説明。
+演習用小型ロボット`Minibot middle ver.2`（以降単に「ロボット」と表記します）の使い方をご説明します。
+本ドキュメントをよく読んでロボットをお使いください。
+
+## 目次
+
+- [ロボットの構成](./docs/structure.md)
+- [ロボットの電源を入れる](./docs/power_on.md)
+- [ロボットをジョイスティックで動かす（テレオペレーション）](./docs/teleop.md)
+- [地図を作る（SLAM）](./docs/slam.md)
+- [自律移動する（ナビゲーション）](./docs/navigation.md)
+- [カメラ画像をキャプチャする](./docs/camera_capture.md)
+- [サンプルプログラムを実行する](./docs/samples.md)
+- [ロボットの電源を切り、充電する](./docs/power_off.md)
 
 ## メモ
 
