@@ -15,6 +15,7 @@
 - [`Linux`ファイル操作の基本](./docs/file.md)
 - [カメラ画像をキャプチャする](./docs/camera_capture.md)
 - [サンプルプログラムを実行する](./docs/samples.md)
+- [ロボット搭載のコンピュータでシミュレータを起動する](./docs/simulation.md)
 - [ロボットの電源を切り、充電する](./docs/power_off.md)
 
 付録
