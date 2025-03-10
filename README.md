@@ -12,22 +12,23 @@
 - [ロボットをジョイスティックで動かす（テレオペレーション）](./docs/teleop.md)
 - [地図を作る（SLAM）](./docs/slam.md)
 - [自律移動する（ナビゲーション）](./docs/navigation.md)
-- [`Linux`ファイル操作の基本](./docs/file.md)
+- [Linuxファイル操作の基本](./docs/file.md)
 - [カメラ画像をキャプチャする](./docs/camera_capture.md)
 - [ロボット搭載のコンピュータでシミュレータを起動する](./docs/simulation.md)
 - [サンプルプログラムを実行する](./docs/samples.md)
 - [ロボットの電源を切り、充電する](./docs/power_off.md)
 - [ロボットのソフトをアップデートする](./docs/update.md)
+- [外部ディスプレイの利用](./docs/dual_monitor.md)
 
 付録
 
-- [外部モニタの利用](./docs/dual_monitor.md)
 - [他のソフトのインストール方法](./docs/install_tools.md)
 - [システムのインストール方法](./docs/install.md)
 
 ## 履歴
 
 - 2025/03/10 初版
+- 2025/03/11 文言の修正
 
 <!--
 ## メモ

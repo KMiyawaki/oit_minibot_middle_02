@@ -1,3 +1,4 @@
+- 次 [外部ディスプレイの利用](./dual_monitor.md)
 - 前 [ロボットの電源を切り、充電する](./power_off.md)
 - [トップページに戻る](../README.md)
 
@@ -23,5 +24,6 @@ git pull
 
 ---
 
+- 次 [外部ディスプレイの利用](./dual_monitor.md)
 - 前 [ロボットの電源を切り、充電する](./power_off.md)
 - [トップページに戻る](../README.md)
