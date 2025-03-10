@@ -7,7 +7,7 @@ function main(){
     source /opt/ros/${DIST}/setup.bash
     source ${HOME}/catkin_ws/devel/setup.bash
     source ${HOME}/catkin_ws/src/${PACKAGE}/scripts/settings.sh
-    xterm -hold -e "python ${SCRIPT}"
+    python ${SCRIPT}
 }
 
 main "$@"
