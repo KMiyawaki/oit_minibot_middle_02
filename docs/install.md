@@ -1,5 +1,11 @@
 # システムのインストール方法
 
+---
+
+ロボットには必要なソフトが全てインストールされているため、通常はこの手順を実施する必要はありませんが、参考資料として付録に入れています。
+
+リポジトリをクローンしモータコントローラや`LiDAR`のソフト等をインストール・セットアップします。
+
 ```shell
 cd ~/catkin_ws/src
 git clone https://github.com/KMiyawaki/oit_minibot_middle_02.git
@@ -11,16 +17,16 @@ sudo initenv.sh
 sudo reboot
 ```
 
-設定ファイルを置く。
+設定ファイルを置きます。
 
 ```shell
 roscd oit_minibot_middle_02/script
 emacs settings.sh
 ```
 
-以下を貼り付ける。
+以下を貼り付けます。
 
-その後、コメントにある通り、`~/.bashrc`の末尾に`source ${HOME}/catkin_ws/src/oit_minibot_middle_02/scripts/settings.sh`の一行を貼り付ける。
+その後、コメントにある通り、`~/.bashrc`の末尾に`source ${HOME}/catkin_ws/src/oit_minibot_middle_02/scripts/settings.sh`の一行を貼り付けます。
 
 ```shell
 # Add the following line to the bottom of ~/.bashrc
@@ -40,7 +46,7 @@ export OIT_MINIBOT_MIDDLE_02_CAMERA_IMAGE_HEIGHT="480"
 export OIT_MINIBOT_MIDDLE_02_USE_TTS="true"
 ```
 
-サンプルプログラムをコピーする。
+サンプルプログラムをコピーします。
 
 ```shell
 cp ~/catkin_ws/src/oit_minibot_middle_02/samples/* ~/catkin_ws/src/beginner_tutorials/scripts/
