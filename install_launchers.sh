@@ -46,6 +46,11 @@ function main(){
     install_desktop_entry ${APPS} ./desktop/oit_capture.desktop
     install_desktop_entry ${APPS} ./desktop/oit_save_map.desktop
     install_desktop_entry ${APPS} ./desktop/oit_ros_python.desktop
+    install_desktop_entry ${APPS} ./desktop/oit_mapping.desktop
+    install_desktop_entry ${APPS} ./desktop/oit_teleop.desktop 
+    install_desktop_entry ${APPS} ./desktop/oit_navigation.desktop 
+    install_desktop_entry ${APPS} ./desktop/oit_stage_navigation.desktop 
+    install_desktop_entry ${APPS} ./desktop/oit_devices.desktop
     echo "Add panel from lanchbar menu"
     echo "Set default app for python with right click *.py file."
 }
